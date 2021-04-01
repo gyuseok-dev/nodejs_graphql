@@ -5,7 +5,6 @@ import { useQuery, useMutation, gql } from '@apollo/client';
 const USER_QUERY = gql`
 {
   users {
-      id,
       name,
       email
   }
@@ -13,7 +12,7 @@ const USER_QUERY = gql`
 `;
 
 const ADD_USER = gql`
-mutation CreateUser($email: String!, $name: String!) {
+mutation ($email: String!, $name: String!) {
     createUser(email:$email, name:$name) {
         id
     }
@@ -22,7 +21,7 @@ mutation CreateUser($email: String!, $name: String!) {
 
 const UserList = () => {
   const { data } = useQuery(USER_QUERY);    
-  const [addUser] = useMutation(ADD_USER)
+  const [addUser] = useMutation(ADD_USER);
   
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');

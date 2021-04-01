@@ -5,7 +5,7 @@ const User = (props) => {
   return (
     <div>
       <div>
-        ID:{user.id} 이름:{user.name} 이메일:{user.email}
+        이름:{user.name} 이메일:{user.email}
       </div>
     </div>
   );
